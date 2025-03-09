@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milena Store</title>
+  <style>
+    /* Variables for easy customization */
+    :root {
+      --main-font: 'Arial', sans-serif;
+      --header-bg-color: #333;
+      --filter-bar-bg-color: #f4f4f4;
+    }
+
+    /* General Styles */
+    body {
+      font-family: var(--main-font);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      background: var(--header-bg-color);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-size: 1rem;
+    }
+
+    header nav a:hover {
+      color: #f4c542;
+    }
+
+    .search-bar {
+      position: relative;
+      margin: 0 1rem;
+    }
+
+    .search-bar input {
+      padding: 0.5rem;
+      width: 200px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://via.placeholder.com/1500x600') no-repeat center/cover;
+      height: 70vh;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+    }
+
+    /* Product Section */
+    .section {
+      padding: 2rem;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: #444;
+    }
+
+    .filter-bar {
+      text-align: center;
+      margin-bottom: 1rem;
+      background: var(--filter-bar-bg-color);
+      padding: 1rem;
+      border-radius: 8px;
+    }
+
+    .filter-bar select {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 280px;
+      text-align: left;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+    }
+
+    .product-card h3, .product-card p {
+      padding: 0 1rem;
+    }
+
+    .product-card button {
+      background-color: #f4c542;
+      border: none;
+      color: #fff;
+      padding: 0.8rem;
+      width: 100%;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .product-card button:hover {
+      background-color: #e0ac3b;
+    }
+
+    /* Footer Styles */
+    footer {
+      background: var(--header-bg-color);
+      color: #fff;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    footer a {
+      color: #f4c542;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #e0ac3b;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Milena</div>
+    <nav>
+      <a href="#products">Products</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="search-bar">
+      <input type="text" id="search" placeholder="Search jewelry...">
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div>
+      <h1>Discover Timeless Elegance</h1>
+      <p>Exquisite designs crafted for every occasion.</p>
+    </div>
+  </div>
+
+  <!-- Products Section -->
+  <section id="products" class="section">
+    <h2>Our Collection</h2>
+    <div class="filter-bar">
+      <label for="category">Filter by Category:</label>
+      <select id="category" onchange="filterProducts()">
+        <option value="all">All</option>
+        <option value="rings">Rings</option>
+        <option value="necklaces">Necklaces</option>
+        <option value="bracelets">Bracelets</option>
+      </select>
+    </div>
+    <div class="products" id="product-list">
+      <!-- Product Cards -->
+      <div class="product-card" data-category="rings">
+        <img src="https://via.placeholder.com/280x200" alt="Ring">
+        <h3>Diamond Ring</h3>
+        <p>Elegant and timeless.</p>
+        <button>Add to Cart</button>
+      </div>
+      <!-- Additional Product Cards -->
+      <div class="products" id="product-list">
+        <!-- Product Card 1 -->
+        <div class="product-card" data-category="rings">
+          <img src="https://via.placeholder.com/280x200" alt="Diamond Ring">
+          <h3>Diamond Ring</h3>
+          <p>Elegant and timeless design.</p>
+          <button>Add to Cart</button>
+        </div>
+        <!-- Product Card 2 -->
+        <div class="product-card" data-category="necklaces">
+          <img src="https://via.placeholder.com/280x200" alt="Gold Necklace">
+          <h3>Gold Necklace</h3>
+          <p>Perfect for special occasions.</p>
+          <button>Add to Cart</button>
+        </div>
+        <!-- Product Card 3 -->
+        <div class="product-card" data-category="bracelets">
+          <img src="https://via.placeholder.com/280x200" alt="Silver Bracelet">
+          <h3>Silver Bracelet</h3>
+          <p>Subtle yet stunning piece.</p>
+          <button>Add to Cart</button>
+        </div>
+        <!-- Product Card 4 -->
+        <div class="product-card" data-category="earrings">
+          <img src="https://via.placeholder.com/280x200" alt="Pearl Earrings">
+          <h3>Pearl Earrings</h3>
+          <p>Classic style for everyday wear.</p>
+          <button>Add to Cart</button>
+        </div>
+        <!-- Product Card 5 -->
+        <div class="product-card" data-category="rings">
+          <img src="https://via.placeholder.com/280x200" alt="Sapphire Ring">
+          <h3>Sapphire Ring</h3>
+          <p>Exquisite craftsmanship.</p>
+          <button>Add to Cart</button>
+        </div>
+        <!-- Product Card 6 -->
+        <div class="product-card" data-category="necklaces">
+          <img src="https://via.placeholder.com/280x200" alt="Emerald Necklace">
+          <h3>Emerald Necklace</h3>
+          <p>Vibrant color for a statement look.</p>
+          <button>Add to Cart</button>
+        </div>
+      </div>
+  
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Milena Jewelry Store. All rights reserved. <a href="#privacy">Privacy Policy</a></p>
+  </footer>
+
+  <script>
+    // Filter products
+    function filterProducts() {
+      const category = document.getElementById('category').value;
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        if (category === 'all' || product.getAttribute('data-category') === category) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
